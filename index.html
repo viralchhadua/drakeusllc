@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dawsonville Grading & Hauling | Site Clearing, Grading, Hauling</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --red:#B71C1C;
+  --red-dark:#7f1315;
+  --blue:#1A237E;
+  --blue-dark:#0d1242;
+  --white:#FAFAFA;
+  --offwhite:#F5F5F5;
+  --grey:#333;
+  --grey-light:#666;
+  --star:#FFD600;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Source Sans 3',sans-serif;color:var(--grey);background:var(--white);overflow-x:hidden}
+h1,h2,h3,h4,h5{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.04em}
+
+/* NAV */
+.topbar{background:var(--blue-dark);color:#fff;font-size:.8rem;padding:6px 0;text-align:center;letter-spacing:.05em}
+.topbar a{color:#fff;text-decoration:none}
+nav{position:sticky;top:0;z-index:100;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.08);transition:box-shadow .3s}
+.nav-inner{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:12px 24px}
+.logo{font-family:'Oswald',sans-serif;font-size:1.6rem;font-weight:700;color:var(--blue);text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo .icon{width:40px;height:40px;background:var(--red);border-radius:6px;display:flex;align-items:center;justify-content:center}
+.logo .icon svg{width:24px;height:24px;fill:#fff}
+.nav-links{display:flex;gap:28px;align-items:center;list-style:none}
+.nav-links a{text-decoration:none;font-family:'Oswald',sans-serif;font-size:.95rem;color:var(--grey);letter-spacing:.06em;text-transform:uppercase;position:relative;transition:color .2s}
+.nav-links a:hover{color:var(--red)}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--red);transition:width .3s}
+.nav-links a:hover::after{width:100%}
+.btn{display:inline-block;padding:12px 28px;font-family:'Oswald',sans-serif;font-size:.95rem;text-transform:uppercase;letter-spacing:.08em;border:none;cursor:pointer;text-decoration:none;border-radius:4px;transition:all .25s}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red-dark);transform:translateY(-2px);box-shadow:0 6px 20px rgba(183,28,28,.35)}
+.btn-blue{background:var(--blue);color:#fff}
+.btn-blue:hover{background:var(--blue-dark);transform:translateY(-2px);box-shadow:0 6px 20px rgba(26,35,126,.35)}
+.btn-outline{background:transparent;border:2px solid #fff;color:#fff}
+.btn-outline:hover{background:#fff;color:var(--blue)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}
+.hamburger span{width:26px;height:3px;background:var(--blue);border-radius:2px;transition:all .3s}
+
+/* HERO */
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;overflow:hidden;background:var(--blue-dark)}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,var(--blue-dark) 0%,#0a0e3a 50%,var(--red-dark) 100%);opacity:.95}
+.hero-pattern{position:absolute;inset:0;opacity:.06;background-image:repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 1px,transparent 40px),repeating-linear-gradient(-45deg,#fff 0,#fff 1px,transparent 1px,transparent 40px)}
+.hero-content{position:relative;z-index:2;max-width:1200px;margin:auto;padding:0 24px;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.15);padding:8px 18px;border-radius:40px;color:#fff;font-size:.85rem;letter-spacing:.06em;margin-bottom:24px}
+.hero-badge .dot{width:8px;height:8px;background:var(--star);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero h1{font-size:clamp(2.8rem,6vw,5rem);color:#fff;line-height:1.05;margin-bottom:20px;max-width:800px}
+.hero h1 span{color:var(--red);display:inline-block;position:relative}
+.hero p{font-size:1.2rem;color:rgba(255,255,255,.75);max-width:540px;line-height:1.7;margin-bottom:36px;font-weight:300}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+.hero-stats{display:flex;gap:48px;margin-top:56px;padding-top:32px;border-top:1px solid rgba(255,255,255,.12)}
+.hero-stats .stat{text-align:left}
+.hero-stats .stat-num{font-family:'Oswald',sans-serif;font-size:2.4rem;color:#fff;font-weight:700}
+.hero-stats .stat-label{font-size:.8rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.1em;margin-top:2px}
+.stars{display:flex;gap:2px;margin-bottom:6px}
+.stars svg{width:18px;height:18px;fill:var(--star)}
+
+/* SECTIONS */
+section{padding:90px 24px}
+.section-inner{max-width:1200px;margin:auto}
+.section-label{font-family:'Oswald',sans-serif;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:8px;font-weight:600}
+.section-title{font-size:clamp(1.8rem,4vw,2.6rem);color:var(--blue);margin-bottom:16px;line-height:1.15}
+.section-desc{color:var(--grey-light);max-width:560px;line-height:1.7;margin-bottom:48px}
+
+/* SERVICES */
+.services{background:var(--offwhite)}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.service-card{background:#fff;border-radius:8px;padding:36px 30px;position:relative;overflow:hidden;transition:all .35s;border:1px solid #eee}
+.service-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(0,0,0,.1);border-color:var(--red)}
+.service-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:0;background:var(--red);transition:height .35s}
+.service-card:hover::before{height:100%}
+.service-icon{width:56px;height:56px;background:linear-gradient(135deg,var(--blue),var(--blue-dark));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.service-icon svg{width:28px;height:28px;fill:#fff}
+.service-card h3{font-size:1.2rem;color:var(--blue);margin-bottom:10px}
+.service-card p{color:var(--grey-light);line-height:1.65;font-size:.95rem}
+
+/* WHY US */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.why-list{display:flex;flex-direction:column;gap:20px}
+.why-item{display:flex;gap:16px;align-items:flex-start}
+.why-item .check{width:32px;height:32px;min-width:32px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.why-item .check svg{width:16px;height:16px;fill:#fff}
+.why-item h4{font-size:1rem;color:var(--blue);margin-bottom:4px}
+.why-item p{color:var(--grey-light);font-size:.9rem;line-height:1.6}
+.why-image{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/3;background:var(--blue-dark)}
+.why-image-inner{width:100%;height:100%;background:linear-gradient(135deg,var(--blue),var(--red-dark));display:flex;align-items:center;justify-content:center;padding:40px}
+.why-image-inner svg{width:120px;height:120px;fill:rgba(255,255,255,.15)}
+.why-flag{position:absolute;bottom:0;left:0;right:0;height:8px;display:flex}
+.why-flag span:nth-child(1){flex:1;background:var(--red)}
+.why-flag span:nth-child(2){flex:1;background:#fff}
+.why-flag span:nth-child(3){flex:1;background:var(--blue)}
+
+/* GALLERY */
+.gallery{background:var(--blue-dark);color:#fff}
+.gallery .section-label{color:var(--star)}
+.gallery .section-title{color:#fff}
+.gallery .section-desc{color:rgba(255,255,255,.6)}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.gallery-item{position:relative;aspect-ratio:4/3;border-radius:8px;overflow:hidden;cursor:pointer;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)}
+.gallery-item:hover .gallery-overlay{opacity:1}
+.gallery-img{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(183,28,28,.3),rgba(26,35,126,.3));font-size:.85rem;color:rgba(255,255,255,.4);text-align:center;padding:20px}
+.gallery-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.7),transparent);opacity:0;transition:opacity .3s;display:flex;flex-direction:column;justify-content:flex-end;padding:20px}
+.gallery-overlay h4{font-family:'Oswald',sans-serif;font-size:1rem;margin-bottom:4px}
+.gallery-overlay p{font-size:.8rem;color:rgba(255,255,255,.7)}
+.gallery-tabs{display:flex;gap:12px;margin-bottom:32px;flex-wrap:wrap}
+.gallery-tab{padding:8px 20px;border-radius:30px;border:1px solid rgba(255,255,255,.2);background:transparent;color:#fff;font-family:'Oswald',sans-serif;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:all .25s}
+.gallery-tab:hover,.gallery-tab.active{background:var(--red);border-color:var(--red)}
+
+/* TESTIMONIALS */
+.testimonials{background:var(--offwhite)}
+.testimonial-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:24px}
+.testimonial-card{background:#fff;border-radius:8px;padding:32px;border:1px solid #eee;position:relative}
+.testimonial-card::before{content:'"';font-family:'Oswald',sans-serif;font-size:5rem;color:var(--red);opacity:.15;position:absolute;top:8px;left:20px;line-height:1}
+.testimonial-stars{display:flex;gap:2px;margin-bottom:14px}
+.testimonial-stars svg{width:16px;height:16px;fill:var(--star)}
+.testimonial-card blockquote{font-size:.95rem;line-height:1.7;color:var(--grey-light);margin-bottom:20px;position:relative;z-index:1}
+.testimonial-author{display:flex;align-items:center;gap:12px}
+.testimonial-avatar{width:44px;height:44px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600}
+.testimonial-author-info{font-size:.85rem}
+.testimonial-author-info strong{color:var(--blue);display:block}
+.testimonial-author-info span{color:var(--grey-light)}
+
+/* CTA BANNER */
+.cta-banner{background:linear-gradient(135deg,var(--red) 0%,var(--red-dark) 100%);padding:64px 24px;text-align:center;color:#fff;position:relative;overflow:hidden}
+.cta-banner::before{content:'';position:absolute;inset:0;opacity:.06;background-image:repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 1px,transparent 30px)}
+.cta-banner h2{font-size:clamp(1.6rem,4vw,2.4rem);margin-bottom:12px;position:relative}
+.cta-banner p{font-size:1.05rem;opacity:.85;margin-bottom:28px;position:relative}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.contact-info{display:flex;flex-direction:column;gap:24px}
+.contact-item{display:flex;gap:14px;align-items:flex-start}
+.contact-item .ci-icon{width:44px;height:44px;min-width:44px;background:var(--blue);border-radius:8px;display:flex;align-items:center;justify-content:center}
+.contact-item .ci-icon svg{width:20px;height:20px;fill:#fff}
+.contact-item h4{font-size:.95rem;color:var(--blue);margin-bottom:2px}
+.contact-item p,.contact-item a{color:var(--grey-light);font-size:.9rem;text-decoration:none;line-height:1.5}
+.contact-form{display:flex;flex-direction:column;gap:16px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.contact-form label{font-family:'Oswald',sans-serif;font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--blue);margin-bottom:4px;display:block}
+.contact-form input,.contact-form textarea,.contact-form select{width:100%;padding:12px 16px;border:1px solid #ddd;border-radius:6px;font-family:'Source Sans 3',sans-serif;font-size:.95rem;transition:border-color .2s;background:#fff}
+.contact-form input:focus,.contact-form textarea:focus,.contact-form select:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px rgba(183,28,28,.08)}
+.contact-form textarea{resize:vertical;min-height:120px}
+
+/* FOOTER */
+footer{background:var(--blue-dark);color:rgba(255,255,255,.7);padding:60px 24px 24px}
+.footer-grid{max-width:1200px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.footer-brand .logo{color:#fff;margin-bottom:16px}
+.footer-brand p{font-size:.9rem;line-height:1.7;max-width:320px}
+.footer-col h4{font-family:'Oswald',sans-serif;color:#fff;font-size:.9rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.footer-col a{color:rgba(255,255,255,.6);text-decoration:none;font-size:.9rem;transition:color .2s}
+.footer-col a:hover{color:#fff}
+.footer-bottom{max-width:1200px;margin:auto;border-top:1px solid rgba(255,255,255,.1);padding-top:20px;display:flex;justify-content:space-between;align-items:center;font-size:.8rem;flex-wrap:wrap;gap:12px}
+
+/* ABOUT PAGE (toggled via JS) */
+.page{display:none}
+.page.active{display:block}
+
+/* ABOUT */
+.about-hero{background:linear-gradient(135deg,var(--blue-dark),var(--blue));padding:120px 24px 80px;text-align:center;color:#fff;position:relative}
+.about-hero::before{content:'';position:absolute;inset:0;opacity:.05;background-image:repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 1px,transparent 40px)}
+.about-hero h1{font-size:clamp(2rem,5vw,3.2rem);margin-bottom:12px;position:relative}
+.about-hero p{font-size:1.1rem;opacity:.7;position:relative;max-width:600px;margin:auto}
+.about-content{max-width:900px;margin:auto;padding:80px 24px}
+.about-content h2{font-size:1.8rem;color:var(--blue);margin:40px 0 16px}
+.about-content p{color:var(--grey-light);line-height:1.8;margin-bottom:16px;font-size:1.02rem}
+.about-values{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;margin:40px 0}
+.about-value{text-align:center;padding:32px 20px;border-radius:8px;background:var(--offwhite);border:1px solid #eee}
+.about-value .av-icon{width:56px;height:56px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.about-value .av-icon svg{width:24px;height:24px;fill:#fff}
+.about-value h4{color:var(--blue);margin-bottom:8px;font-size:1rem}
+.about-value p{color:var(--grey-light);font-size:.88rem;line-height:1.6}
+.about-timeline{position:relative;padding-left:32px;margin:40px 0}
+.about-timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--red),var(--blue))}
+.tl-item{position:relative;margin-bottom:32px}
+.tl-item::before{content:'';position:absolute;left:-28px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--red);border:3px solid #fff;box-shadow:0 0 0 2px var(--red)}
+.tl-item h4{font-family:'Oswald',sans-serif;color:var(--blue);font-size:1rem;margin-bottom:4px}
+.tl-item p{color:var(--grey-light);font-size:.92rem;line-height:1.6}
+
+/* LIGHTBOX */
+.lightbox{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.9);align-items:center;justify-content:center;padding:40px}
+.lightbox.open{display:flex}
+.lightbox-close{position:absolute;top:20px;right:24px;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer}
+.lightbox-content{max-width:800px;width:100%;background:var(--blue-dark);border-radius:12px;padding:40px;text-align:center;color:#fff}
+.lightbox-content h3{font-family:'Oswald',sans-serif;font-size:1.4rem;margin-bottom:8px}
+.lightbox-content p{color:rgba(255,255,255,.6);font-size:.95rem;line-height:1.6}
+.lightbox-img{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,rgba(183,28,28,.3),rgba(26,35,126,.3));border-radius:8px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;font-size:.85rem;color:rgba(255,255,255,.3)}
+
+/* MOBILE */
+@media(max-width:768px){
+  .hamburger{display:flex}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:20px 24px;box-shadow:0 8px 24px rgba(0,0,0,.1);gap:16px}
+  .nav-links.open{display:flex}
+  .hero-stats{gap:24px;flex-wrap:wrap}
+  .why-grid,.contact-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .hero h1{font-size:2.4rem}
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{animation:fadeUp .7s ease forwards}
+.delay-1{animation-delay:.1s}
+.delay-2{animation-delay:.2s}
+.delay-3{animation-delay:.3s}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  Proudly Serving Dawsonville, GA & North Georgia &nbsp;|&nbsp; <a href="tel:+17065551234">(706) 555-1234</a> &nbsp;|&nbsp; Family Owned & Operated
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo" onclick="showPage('home');return false">
+      <div class="icon">
+        <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9 1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+      </div>
+      DG&H
+    </a>
+    <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="#services" onclick="showPage('home')">Services</a></li>
+      <li><a href="#gallery" onclick="showPage('home')">Gallery</a></li>
+      <li><a href="#testimonials" onclick="showPage('home')">Testimonials</a></li>
+      <li><a href="#" onclick="showPage('about');return false">About Us</a></li>
+      <li><a href="#contact" class="btn btn-red" onclick="showPage('home')">Get a Quote</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ==================== HOME PAGE ==================== -->
+<div id="page-home" class="page active">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><span class="dot"></span> Now Booking Projects for 2026</div>
+    <h1 class="fade-up">We Move the Earth <span>You Build On</span></h1>
+    <p class="fade-up delay-1">Professional grading, site clearing, and hauling services in Dawsonville and across North Georgia. Family-owned quality you can trust.</p>
+    <div class="hero-btns fade-up delay-2">
+      <a href="#contact" class="btn btn-red">Request Free Estimate</a>
+      <a href="tel:+17065551234" class="btn btn-outline">Call (706) 555-1234</a>
+    </div>
+    <div class="hero-stats fade-up delay-3">
+      <div class="stat">
+        <div class="stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.39L10 13.47l-4.83 2.73.92-5.39L2.18 7l5.43-.16z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.39L10 13.47l-4.83 2.73.92-5.39L2.18 7l5.43-.16z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.39L10 13.47l-4.83 2.73.92-5.39L2.18 7l5.43-.16z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.39L10 13.47l-4.83 2.73.92-5.39L2.18 7l5.43-.16z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.39L10 13.47l-4.83 2.73.92-5.39L2.18 7l5.43-.16z"/></svg></div>
+        <div class="stat-label">5-Star Google Reviews</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100+</div>
+        <div class="stat-label">Projects Completed</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">Family</div>
+        <div class="stat-label">Owned & Operated</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-inner">
+    <div class="section-label">What We Do</div>
+    <h2 class="section-title">Our Services</h2>
+    <p class="section-desc">From raw land to job-ready sites, we handle every phase of earthwork with precision equipment and experienced operators.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
+        </div>
+        <h3>Grading & Leveling</h3>
+        <p>Precision grading for building pads, driveways, parking lots, and drainage solutions. We ensure proper slope and compaction for any project size.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+        </div>
+        <h3>Land & Site Clearing</h3>
+        <p>Complete clearing of trees, brush, stumps, and vegetation. We prepare your raw land for residential, commercial, or agricultural development.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zm-.5 1.5 1.96 2.5H17V9.5h2.5zM6 18c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm12 0c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/></svg>
+        </div>
+        <h3>Dirt & Debris Hauling</h3>
+        <p>Reliable hauling of fill dirt, topsoil, gravel, rock, demolition debris, and construction waste. Fleet of trucks ready for any volume.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M19 12h-2v3h-3v2h5v-5zM7 9h3V7H5v5h2V9zm14-6H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16.01H3V4.99h18v14.02z"/></svg>
+        </div>
+        <h3>Excavation</h3>
+        <p>Foundation excavation, trenching, pond construction, and drainage ditches. Equipped for residential and commercial excavation projects.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>
+        </div>
+        <h3>Demolition & Removal</h3>
+        <p>Safe demolition of structures, concrete, and asphalt with complete debris removal and site cleanup. Permitted and insured.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M14 6l-3.75 5 2.85 3.8-1.6 1.2C9.81 13.75 7 10 7 10l-6 8h22L14 6z"/></svg>
+        </div>
+        <h3>Erosion Control</h3>
+        <p>Silt fences, retention ponds, French drains, and grading solutions to protect your property and meet county erosion control requirements.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section>
+  <div class="section-inner">
+    <div class="why-grid">
+      <div>
+        <div class="section-label">Why Choose Us</div>
+        <h2 class="section-title">Built on Hard Work & Handshakes</h2>
+        <p class="section-desc">As a family-owned operation in Dawsonville, we treat every job like it's our own land. Our reputation is built on honest work, fair pricing, and results that speak for themselves.</p>
+        <div class="why-list">
+          <div class="why-item">
+            <div class="check"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+            <div><h4>Licensed & Fully Insured</h4><p>Complete coverage for every project. Peace of mind from day one.</p></div>
+          </div>
+          <div class="why-item">
+            <div class="check"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+            <div><h4>Free On-Site Estimates</h4><p>We walk your property, understand the scope, and give you an honest quote — no surprises.</p></div>
+          </div>
+          <div class="why-item">
+            <div class="check"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+            <div><h4>Local Knowledge</h4><p>We know Dawson County soil, regulations, and terrain. That saves you time and money.</p></div>
+          </div>
+          <div class="why-item">
+            <div class="check"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+            <div><h4>On Time, On Budget</h4><p>We show up when we say we will and finish the job right — the first time.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="why-image">
+        <div class="why-image-inner">
+          <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9 1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+        </div>
+        <div class="why-flag"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="section-inner">
+    <div class="section-label">Our Work</div>
+    <h2 class="section-title">Project Gallery</h2>
+    <p class="section-desc">Browse our completed projects across Dawson County and North Georgia.</p>
+    <div class="gallery-tabs">
+      <button class="gallery-tab active" onclick="filterGallery('all',this)">All Projects</button>
+      <button class="gallery-tab" onclick="filterGallery('grading',this)">Grading</button>
+      <button class="gallery-tab" onclick="filterGallery('clearing',this)">Site Clearing</button>
+      <button class="gallery-tab" onclick="filterGallery('hauling',this)">Hauling</button>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item" data-cat="grading" onclick="openLightbox('Residential Grading','Dawsonville, GA — 2-acre lot graded for new home construction with proper drainage slope and compacted building pad.')">
+        <div class="gallery-img">[ Residential Grading Photo ]</div>
+        <div class="gallery-overlay"><h4>Residential Grading</h4><p>Dawsonville, GA</p></div>
+      </div>
+      <div class="gallery-item" data-cat="clearing" onclick="openLightbox('Commercial Site Clearing','Dawson County — 5-acre commercial lot cleared of mature hardwoods and brush, ready for development.')">
+        <div class="gallery-img">[ Commercial Clearing Photo ]</div>
+        <div class="gallery-overlay"><h4>Commercial Clearing</h4><p>Dawson County</p></div>
+      </div>
+      <div class="gallery-item" data-cat="hauling" onclick="openLightbox('Fill Dirt Delivery','Gainesville, GA — 200 loads of screened fill dirt delivered and spread for subdivision pad prep.')">
+        <div class="gallery-img">[ Fill Dirt Hauling Photo ]</div>
+        <div class="gallery-overlay"><h4>Fill Dirt Delivery</h4><p>Gainesville, GA</p></div>
+      </div>
+      <div class="gallery-item" data-cat="grading" onclick="openLightbox('Driveway Grading','Lumpkin County — 800ft gravel driveway graded with proper crown and ditch lines.')">
+        <div class="gallery-img">[ Driveway Grading Photo ]</div>
+        <div class="gallery-overlay"><h4>Driveway Grading</h4><p>Lumpkin County</p></div>
+      </div>
+      <div class="gallery-item" data-cat="clearing" onclick="openLightbox('Land Clearing for Pasture','Dawsonville, GA — 12 acres cleared and prepped for agricultural pasture use.')">
+        <div class="gallery-img">[ Pasture Clearing Photo ]</div>
+        <div class="gallery-overlay"><h4>Pasture Clearing</h4><p>Dawsonville, GA</p></div>
+      </div>
+      <div class="gallery-item" data-cat="hauling" onclick="openLightbox('Demolition Debris Removal','Cumming, GA — Complete demolition of commercial structure with debris hauling and site cleanup.')">
+        <div class="gallery-img">[ Debris Removal Photo ]</div>
+        <div class="gallery-overlay"><h4>Debris Removal</h4><p>Cumming, GA</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="section-inner">
+    <div class="section-label">What Clients Say</div>
+    <h2 class="section-title">Trusted by Our Neighbors</h2>
+    <p class="section-desc">Hear from homeowners and contractors who've relied on us for their earthwork needs.</p>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.39L10 13.47l-4.83 2.73.92-5.39L2.18 7l5.43-.16z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.39L10 13.47l-4.83 2.73.92-5.39L2.18 7l5.43-.16z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.39L10 13.47l-4.83 2.73.92-5.39L2.18 7l5.43-.16z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.39L10 13.47l-4.83 2.73.92-5.39L2.18 7l5.43-.16z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.39L10 13.47l-4.83 2.73.92-5.39L2.18 7l5.43-.16z"/></svg></div>
+        <blockquote>"They cleared our 3-acre lot and had it graded perfectly in under a week. Fair price, great crew, and zero surprises. Already recommended them to two neighbors."</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">JR</div>
+          <div class="testimonial-author-info"><strong>James R.</strong><span>Homeowner — Dawsonville</span></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.39L10 13.47l-4.83 2.73.92-5.39L2.18 7l5.43-.16z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.39L10 13.47l-4.83 2.73.92-5.39L2.18 7l5.43-.16z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.39L10 13.47l-4.83 2.73.92-5.39L2.18 7l5.43-.16z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.39L10 13.47l-4.83 2.73.92-5.39L2.18 7l5.43-.16z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.39L10 13.47l-4.83 2.73.92-5.39L2.18 7l5.43-.16z"/></svg></div>
+        <blockquote>"As a general contractor, I need subs I can count on. These guys show up on time, communicate well, and the quality of their grading work is top-notch. My go-to for every project."</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">MP</div>
+          <div class="testimonial-author-info"><strong>Mike P.</strong><span>General Contractor — Cumming</span></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.39L10 13.47l-4.83 2.73.92-5.39L2.18 7l5.43-.16z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.39L10 13.47l-4.83 2.73.92-5.39L2.18 7l5.43-.16z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.39L10 13.47l-4.83 2.73.92-5.39L2.18 7l5.43-.16z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.39L10 13.47l-4.83 2.73.92-5.39L2.18 7l5.43-.16z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.39L10 13.47l-4.83 2.73.92-5.39L2.18 7l5.43-.16z"/></svg></div>
+        <blockquote>"We had a tight deadline for our church expansion and they moved mountains — literally. Professional, respectful of the property, and cleaned up perfectly when done."</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">SL</div>
+          <div class="testimonial-author-info"><strong>Sarah L.</strong><span>Church Board — Dahlonega</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <h2>Ready to Break Ground?</h2>
+  <p>Get a free, no-obligation estimate for your next project. We respond within 24 hours.</p>
+  <a href="#contact" class="btn btn-blue">Request Your Free Estimate</a>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-label">Get In Touch</div>
+    <h2 class="section-title">Request a Free Estimate</h2>
+    <p class="section-desc">Fill out the form below and we'll get back to you within 24 hours. No project is too big or too small.</p>
+    <div class="contact-grid">
+      <div class="contact-form" id="contactForm">
+        <div class="form-row">
+          <div><label>First Name *</label><input type="text" placeholder="John" required></div>
+          <div><label>Last Name *</label><input type="text" placeholder="Smith" required></div>
+        </div>
+        <div class="form-row">
+          <div><label>Phone *</label><input type="tel" placeholder="(706) 555-1234" required></div>
+          <div><label>Email</label><input type="email" placeholder="john@email.com"></div>
+        </div>
+        <div>
+          <label>Service Needed</label>
+          <select>
+            <option>Select a service...</option>
+            <option>Grading & Leveling</option>
+            <option>Land / Site Clearing</option>
+            <option>Dirt & Debris Hauling</option>
+            <option>Excavation</option>
+            <option>Demolition & Removal</option>
+            <option>Erosion Control</option>
+            <option>Other / Multiple Services</option>
+          </select>
+        </div>
+        <div><label>Project Location</label><input type="text" placeholder="City or address of job site"></div>
+        <div><label>Tell Us About Your Project</label><textarea placeholder="Describe the work you need done, approximate acreage, timeline, etc."></textarea></div>
+        <button type="button" class="btn btn-red" style="width:100%" onclick="submitForm()">Send Request</button>
+        <p id="formMsg" style="display:none;text-align:center;color:green;font-weight:600;margin-top:8px">Thanks! We'll be in touch within 24 hours.</p>
+      </div>
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div>
+          <div><h4>Phone</h4><a href="tel:+17065551234">(706) 555-1234</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+          <div><h4>Email</h4><a href="mailto:info@dawsonvillegrading.com">info@dawsonvillegrading.com</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+          <div><h4>Location</h4><p>Dawsonville, Georgia<br>Serving all of North Georgia</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg></div>
+          <div><h4>Hours</h4><p>Mon – Fri: 7:00 AM – 5:00 PM<br>Sat: By Appointment<br>Sun: Closed</p></div>
+        </div>
+        <div style="margin-top:16px;padding:24px;background:var(--offwhite);border-radius:8px;border:1px solid #eee">
+          <h4 style="font-family:'Oswald',sans-serif;color:var(--blue);font-size:.95rem;margin-bottom:8px">SERVICE AREA</h4>
+          <p style="color:var(--grey-light);font-size:.88rem;line-height:1.6">Dawsonville, Dahlonega, Cumming, Gainesville, Cleveland, Canton, Ball Ground, Jasper, and surrounding North Georgia communities.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- end home page -->
+
+<!-- ==================== ABOUT PAGE ==================== -->
+<div id="page-about" class="page">
+
+<div class="about-hero">
+  <div style="position:absolute;inset:0;opacity:.05;background-image:repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 1px,transparent 40px)"></div>
+  <h1>About Our Family</h1>
+  <p>Three generations of hard work, honest service, and moving earth across North Georgia.</p>
+</div>
+
+<div class="about-content">
+  <h2>Our Story</h2>
+  <p>Dawsonville Grading & Hauling was built the old-fashioned way — with calloused hands, early mornings, and a handshake you could count on. What started as one man and a single truck has grown into a full-service grading and hauling operation serving Dawson County and all of North Georgia.</p>
+  <p>As a family-owned and operated company based right here in Dawsonville, Georgia, we understand that our name is on every job we do. That's why we treat every project — from a residential driveway to a commercial building pad — with the same level of care, precision, and professionalism.</p>
+
+  <h2>Our Values</h2>
+  <div class="about-values">
+    <div class="about-value">
+      <div class="av-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg></div>
+      <h4>Rooted Locally</h4>
+      <p>We live and work in this community. Our neighbors are our clients, and our reputation matters.</p>
+    </div>
+    <div class="about-value">
+      <div class="av-icon"><svg viewBox="0 0 24 24"><path fill="#fff" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+      <h4>Honest Pricing</h4>
+      <p>We give you a fair quote up front and stick to it. No hidden fees, no change-order games.</p>
+    </div>
+    <div class="about-value">
+      <div class="av-icon"><svg viewBox="0 0 24 24"><path fill="#fff" d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div>
+      <h4>Family First</h4>
+      <p>We're not a faceless corporation. You'll deal with the owners, and we'll know your name.</p>
+    </div>
+    <div class="about-value">
+      <div class="av-icon"><svg viewBox="0 0 24 24"><path fill="#fff" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg></div>
+      <h4>Quality Work</h4>
+      <p>We do the job right the first time, with the right equipment and experienced operators.</p>
+    </div>
+  </div>
+
+  <h2>Our Journey</h2>
+  <div class="about-timeline">
+    <div class="tl-item">
+      <h4>The Beginning</h4>
+      <p>Started with a single dump truck and a dream of building something for the family. Took on small residential grading jobs around Dawson County.</p>
+    </div>
+    <div class="tl-item">
+      <h4>Growing the Fleet</h4>
+      <p>Added excavators, dozers, and additional trucks. Expanded services to include site clearing and demolition work across North Georgia.</p>
+    </div>
+    <div class="tl-item">
+      <h4>Trusted by Contractors</h4>
+      <p>Became a go-to subcontractor for general contractors and builders throughout the region. Reputation for reliability and quality workmanship.</p>
+    </div>
+    <div class="tl-item">
+      <h4>Today</h4>
+      <p>A full-service grading, hauling, and site work company proudly serving Dawsonville and all of North Georgia. Still family-owned, still doing it right.</p>
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-top:48px">
+    <a href="#contact" class="btn btn-red" onclick="showPage('home');setTimeout(()=>document.getElementById('contact').scrollIntoView({behavior:'smooth'}),100)">Get Your Free Estimate Today</a>
+  </div>
+</div>
+
+</div><!-- end about page -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="logo" onclick="showPage('home');return false">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9 1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg></div>
+        DG&H
+      </a>
+      <p>Family-owned grading, hauling, and site clearing in Dawsonville, Georgia. Serving North Georgia with honest work and fair pricing.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services" onclick="showPage('home')">Grading & Leveling</a></li>
+        <li><a href="#services" onclick="showPage('home')">Site Clearing</a></li>
+        <li><a href="#services" onclick="showPage('home')">Dirt & Debris Hauling</a></li>
+        <li><a href="#services" onclick="showPage('home')">Excavation</a></li>
+        <li><a href="#services" onclick="showPage('home')">Demolition</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#" onclick="showPage('about');return false">About Us</a></li>
+        <li><a href="#gallery" onclick="showPage('home')">Gallery</a></li>
+        <li><a href="#testimonials" onclick="showPage('home')">Testimonials</a></li>
+        <li><a href="#contact" onclick="showPage('home')">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Dawsonville Grading & Hauling. All rights reserved.</span>
+    <span>Proudly serving Dawsonville, GA & North Georgia</span>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close">&times;</button>
+  <div class="lightbox-content" onclick="event.stopPropagation()">
+    <div class="lightbox-img" id="lb-img">[ Project Photo ]</div>
+    <h3 id="lb-title"></h3>
+    <p id="lb-desc"></p>
+  </div>
+</div>
+
+<script>
+function showPage(p){
+  document.querySelectorAll('.page').forEach(el=>el.classList.remove('active'));
+  document.getElementById('page-'+p).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+  document.querySelector('.nav-links').classList.remove('open');
+}
+function filterGallery(cat,btn){
+  document.querySelectorAll('.gallery-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.gallery-item').forEach(item=>{
+    item.style.display=(cat==='all'||item.dataset.cat===cat)?'block':'none';
+  });
+}
+function openLightbox(title,desc){
+  document.getElementById('lb-title').textContent=title;
+  document.getElementById('lb-desc').textContent=desc;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
+function submitForm(){
+  document.getElementById('formMsg').style.display='block';
+  setTimeout(()=>{document.getElementById('formMsg').style.display='none'},4000);
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()});
+</script>
+</body>
+</html>
