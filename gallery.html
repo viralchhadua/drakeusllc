@@ -27,7 +27,6 @@ nav{position:sticky;top:0;z-index:100;background:#fff;box-shadow:0 2px 12px rgba
 .nav-inner{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:12px 24px}
 .logo{font-family:'Oswald',sans-serif;font-size:1.6rem;font-weight:700;color:var(--blue);text-decoration:none;display:flex;align-items:center;gap:10px}
 .logo-img{min-width:180px;min-height:130px;width:180px;height:auto;object-fit:contain}
-.footer-logo-img{min-width:150px;min-height:110px;width:150px;height:auto}
 .nav-links{display:flex;gap:28px;align-items:center;list-style:none}
 .nav-links a{text-decoration:none;font-family:'Oswald',sans-serif;font-size:.95rem;color:var(--grey);letter-spacing:.06em;text-transform:uppercase;position:relative;transition:color .2s}
 .nav-links a:hover{color:var(--red)}
@@ -36,163 +35,185 @@ nav{position:sticky;top:0;z-index:100;background:#fff;box-shadow:0 2px 12px rgba
 .btn{display:inline-block;padding:12px 28px;font-family:'Oswald',sans-serif;font-size:.95rem;text-transform:uppercase;letter-spacing:.08em;border:none;cursor:pointer;text-decoration:none;border-radius:4px;transition:all .25s}
 .btn-red{background:var(--red);color:#fff}
 .btn-red:hover{background:var(--red-dark);transform:translateY(-2px);box-shadow:0 6px 20px rgba(183,28,28,.35)}
-.btn-blue{background:var(--blue);color:#fff}
-.btn-blue:hover{background:var(--blue-dark);transform:translateY(-2px);box-shadow:0 6px 20px rgba(26,35,126,.35)}
-.btn-outline{background:transparent;border:2px solid #fff;color:#fff}
-.btn-outline:hover{background:#fff;color:var(--blue)}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}
 .hamburger span{width:26px;height:3px;background:var(--blue);border-radius:2px;transition:all .3s}
-.hero{position:relative;min-height:92vh;display:flex;align-items:center;overflow:hidden;background:var(--blue-dark)}
-.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,var(--blue-dark) 0%,#0a0e3a 50%,var(--red-dark) 100%);opacity:.95}
-.hero-pattern{position:absolute;inset:0;opacity:.06;background-image:repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 1px,transparent 40px),repeating-linear-gradient(-45deg,#fff 0,#fff 1px,transparent 1px,transparent 40px)}
-.hero-content{position:relative;z-index:2;max-width:1200px;margin:auto;padding:0 24px;width:100%}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.15);padding:8px 18px;border-radius:40px;color:#fff;font-size:.85rem;letter-spacing:.06em;margin-bottom:24px}
-.hero-badge .dot{width:8px;height:8px;background:var(--star);border-radius:50%;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-.hero h1{font-size:clamp(2.8rem,6vw,5rem);color:#fff;line-height:1.05;margin-bottom:20px;max-width:800px}
-.hero h1 span{color:var(--red);display:inline-block;position:relative}
-.hero p{font-size:1.2rem;color:rgba(255,255,255,.75);max-width:540px;line-height:1.7;margin-bottom:36px;font-weight:300}
-.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
-.hero-stats{display:flex;gap:48px;margin-top:56px;padding-top:32px;border-top:1px solid rgba(255,255,255,.12)}
-.hero-stats .stat{text-align:left}
-.hero-stats .stat-num{font-family:'Oswald',sans-serif;font-size:2.4rem;color:#fff;font-weight:700}
-.hero-stats .stat-label{font-size:.8rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.1em;margin-top:2px}
-.stars{display:flex;gap:2px;margin-bottom:6px}
-.stars svg{width:18px;height:18px;fill:var(--star)}
-section{padding:90px 24px}
-.section-inner{max-width:1200px;margin:auto}
-.section-label{font-family:'Oswald',sans-serif;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:8px;font-weight:600}
-.section-title{font-size:clamp(1.8rem,4vw,2.6rem);color:var(--blue);margin-bottom:16px;line-height:1.15}
-.section-desc{color:var(--grey-light);max-width:560px;line-height:1.7;margin-bottom:48px}
-.services{background:var(--offwhite)}
-.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
-.service-card{background:#fff;border-radius:8px;padding:36px 30px;position:relative;overflow:hidden;transition:all .35s;border:1px solid #eee}
-.service-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(0,0,0,.1);border-color:var(--red)}
-.service-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:0;background:var(--red);transition:height .35s}
-.service-card:hover::before{height:100%}
-.service-icon{width:56px;height:56px;background:linear-gradient(135deg,var(--blue),var(--blue-dark));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
-.service-icon svg{width:28px;height:28px;fill:#fff}
-.service-card h3{font-size:1.2rem;color:var(--blue);margin-bottom:10px}
-.service-card p{color:var(--grey-light);line-height:1.65;font-size:.95rem}
-.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-.why-list{display:flex;flex-direction:column;gap:20px}
-.why-item{display:flex;gap:16px;align-items:flex-start}
-.why-item .check{width:32px;height:32px;min-width:32px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:2px}
-.why-item .check svg{width:16px;height:16px;fill:#fff}
-.why-item h4{font-size:1rem;color:var(--blue);margin-bottom:4px}
-.why-item p{color:var(--grey-light);font-size:.9rem;line-height:1.6}
-.why-image{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/3;background:var(--blue-dark)}
-.why-image-inner{width:100%;height:100%;background:linear-gradient(135deg,var(--blue),var(--red-dark));display:flex;align-items:center;justify-content:center;padding:40px}
-.why-image-inner svg{width:120px;height:120px;fill:rgba(255,255,255,.15)}
-.why-flag{position:absolute;bottom:0;left:0;right:0;height:8px;display:flex}
-.why-flag span:nth-child(1){flex:1;background:var(--red)}
-.why-flag span:nth-child(2){flex:1;background:#fff}
-.why-flag span:nth-child(3){flex:1;background:var(--blue)}
-.gallery{background:var(--blue-dark);color:#fff}
-.gallery .section-label{color:var(--star)}
-.gallery .section-title{color:#fff}
-.gallery .section-desc{color:rgba(255,255,255,.6)}
-.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
-.gallery-item{position:relative;aspect-ratio:4/3;border-radius:8px;overflow:hidden;cursor:pointer;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)}
-.gallery-img-real{width:100%;height:100%;object-fit:cover;display:block}
-.gallery-item:hover .gallery-overlay{opacity:1}
-.gallery-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.7),transparent);opacity:0;transition:opacity .3s;display:flex;flex-direction:column;justify-content:flex-end;padding:20px}
-.gallery-overlay h4{font-family:'Oswald',sans-serif;font-size:1rem;margin-bottom:4px}
-.gallery-overlay p{font-size:.8rem;color:rgba(255,255,255,.7)}
-.testimonials{background:var(--offwhite)}
-.testimonial-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:24px}
-.testimonial-card{background:#fff;border-radius:8px;padding:32px;border:1px solid #eee;position:relative}
-.testimonial-card::before{content:'"';font-family:'Oswald',sans-serif;font-size:5rem;color:var(--red);opacity:.15;position:absolute;top:8px;left:20px;line-height:1}
-.testimonial-stars{display:flex;gap:2px;margin-bottom:14px}
-.testimonial-stars svg{width:16px;height:16px;fill:var(--star)}
-.testimonial-card blockquote{font-size:.95rem;line-height:1.7;color:var(--grey-light);margin-bottom:20px;position:relative;z-index:1}
-.testimonial-author{display:flex;align-items:center;gap:12px}
-.testimonial-avatar{width:44px;height:44px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600}
-.testimonial-author-info{font-size:.85rem}
-.testimonial-author-info strong{color:var(--blue);display:block}
-.testimonial-author-info span{color:var(--grey-light)}
-.cta-banner{background:linear-gradient(135deg,var(--red) 0%,var(--red-dark) 100%);padding:64px 24px;text-align:center;color:#fff;position:relative;overflow:hidden}
-.cta-banner::before{content:'';position:absolute;inset:0;opacity:.06;background-image:repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 1px,transparent 30px)}
-.cta-banner h2{font-size:clamp(1.6rem,4vw,2.4rem);margin-bottom:12px;position:relative}
-.cta-banner p{font-size:1.05rem;opacity:.85;margin-bottom:28px;position:relative}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
-.contact-info{display:flex;flex-direction:column;gap:24px}
-.contact-item{display:flex;gap:14px;align-items:flex-start}
-.contact-item .ci-icon{width:44px;height:44px;min-width:44px;background:var(--blue);border-radius:8px;display:flex;align-items:center;justify-content:center}
-.contact-item .ci-icon svg{width:20px;height:20px;fill:#fff}
-.contact-item h4{font-size:.95rem;color:var(--blue);margin-bottom:2px}
-.contact-item p,.contact-item a{color:var(--grey-light);font-size:.9rem;text-decoration:none;line-height:1.5}
-.contact-form{display:flex;flex-direction:column;gap:16px}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.contact-form label{font-family:'Oswald',sans-serif;font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--blue);margin-bottom:4px;display:block}
-.contact-form input,.contact-form textarea,.contact-form select{width:100%;padding:12px 16px;border:1px solid #ddd;border-radius:6px;font-family:'Source Sans 3',sans-serif;font-size:.95rem;transition:border-color .2s;background:#fff}
-.contact-form input:focus,.contact-form textarea:focus,.contact-form select:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px rgba(183,28,28,.08)}
-.contact-form textarea{resize:vertical;min-height:120px}
+
+/* PAGE HERO */
+.page-hero{background:linear-gradient(135deg,var(--blue-dark),var(--blue));padding:120px 24px 80px;text-align:center;color:#fff;position:relative}
+.page-hero::before{content:'';position:absolute;inset:0;opacity:.05;background-image:repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 1px,transparent 40px)}
+.page-hero h1{font-size:clamp(2rem,5vw,3.2rem);margin-bottom:12px;position:relative}
+.page-hero p{font-size:1.1rem;opacity:.7;position:relative;max-width:600px;margin:auto}
+
+/* MASONRY GALLERY */
+.gallery-section{background:var(--blue-dark);padding:60px 24px 90px}
+.gallery-inner{max-width:1200px;margin:auto}
+.masonry{columns:3;column-gap:12px}
+.masonry-item{break-inside:avoid;margin-bottom:12px;border-radius:6px;overflow:hidden;cursor:pointer;position:relative;line-height:0}
+.masonry-item img{width:100%;height:auto;display:block;transition:transform .4s,filter .4s}
+.masonry-item:hover img{transform:scale(1.03);filter:brightness(1.1)}
+
+/* LIGHTBOX */
+.lightbox{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.92);align-items:center;justify-content:center;padding:20px}
+.lightbox.open{display:flex}
+.lightbox-close{position:absolute;top:16px;right:20px;background:none;border:none;color:#fff;font-size:2.2rem;cursor:pointer;z-index:201;line-height:1}
+.lightbox-img{max-width:90vw;max-height:85vh;border-radius:8px;object-fit:contain}
+.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.15);border:none;color:#fff;font-size:2rem;width:48px;height:48px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.lightbox-nav:hover{background:rgba(255,255,255,.3)}
+.lightbox-prev{left:16px}
+.lightbox-next{right:16px}
+
+/* FOOTER */
 footer{background:var(--blue-dark);color:rgba(255,255,255,.7);padding:60px 24px 24px}
 .footer-grid{max-width:1200px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px}
-.footer-brand .logo{color:#fff;margin-bottom:16px}
 .footer-brand p{font-size:.9rem;line-height:1.7;max-width:320px}
 .footer-col h4{font-family:'Oswald',sans-serif;color:#fff;font-size:.9rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px}
 .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
 .footer-col a{color:rgba(255,255,255,.6);text-decoration:none;font-size:.9rem;transition:color .2s}
 .footer-col a:hover{color:#fff}
 .footer-bottom{max-width:1200px;margin:auto;border-top:1px solid rgba(255,255,255,.1);padding-top:20px;display:flex;justify-content:space-between;align-items:center;font-size:.8rem;flex-wrap:wrap;gap:12px}
-.footer-credit{text-align:center;flex-basis:100%;margin-top:4px;font-size:.78rem}
+.footer-credit{font-size:.78rem}
 .footer-credit a{color:rgba(255,255,255,.6);text-decoration:none;transition:color .2s}
 .footer-credit a:hover{color:#fff}
-.about-hero{background:linear-gradient(135deg,var(--blue-dark),var(--blue));padding:120px 24px 80px;text-align:center;color:#fff;position:relative}
-.about-hero::before{content:'';position:absolute;inset:0;opacity:.05;background-image:repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 1px,transparent 40px)}
-.about-hero h1{font-size:clamp(2rem,5vw,3.2rem);margin-bottom:12px;position:relative}
-.about-hero p{font-size:1.1rem;opacity:.7;position:relative;max-width:600px;margin:auto}
-.about-content{max-width:900px;margin:auto;padding:80px 24px}
-.about-content h2{font-size:1.8rem;color:var(--blue);margin:40px 0 16px}
-.about-content p{color:var(--grey-light);line-height:1.8;margin-bottom:16px;font-size:1.02rem}
-.about-values{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;margin:40px 0}
-.about-value{text-align:center;padding:32px 20px;border-radius:8px;background:var(--offwhite);border:1px solid #eee}
-.about-value .av-icon{width:56px;height:56px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
-.about-value .av-icon svg{width:24px;height:24px;fill:#fff}
-.about-value h4{color:var(--blue);margin-bottom:8px;font-size:1rem}
-.about-value p{color:var(--grey-light);font-size:.88rem;line-height:1.6}
-.about-timeline{position:relative;padding-left:32px;margin:40px 0}
-.about-timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--red),var(--blue))}
-.tl-item{position:relative;margin-bottom:32px}
-.tl-item::before{content:'';position:absolute;left:-28px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--red);border:3px solid #fff;box-shadow:0 0 0 2px var(--red)}
-.tl-item h4{font-family:'Oswald',sans-serif;color:var(--blue);font-size:1rem;margin-bottom:4px}
-.tl-item p{color:var(--grey-light);font-size:.92rem;line-height:1.6}
-.lightbox{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.9);align-items:center;justify-content:center;padding:40px}
-.lightbox.open{display:flex}
-.lightbox-close{position:absolute;top:20px;right:24px;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer}
-.lightbox-content{max-width:800px;width:100%;background:var(--blue-dark);border-radius:12px;padding:40px;text-align:center;color:#fff}
-.lightbox-content h3{font-family:'Oswald',sans-serif;font-size:1.4rem;margin-bottom:8px}
-.lightbox-content p{color:rgba(255,255,255,.6);font-size:.95rem;line-height:1.6}
-.lightbox-img{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,rgba(183,28,28,.3),rgba(26,35,126,.3));border-radius:8px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;font-size:.85rem;color:rgba(255,255,255,.3)}
-.page-hero{background:linear-gradient(135deg,var(--blue-dark),var(--blue));padding:120px 24px 80px;text-align:center;color:#fff;position:relative}
-.page-hero::before{content:'';position:absolute;inset:0;opacity:.05;background-image:repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 1px,transparent 40px)}
-.page-hero h1{font-size:clamp(2rem,5vw,3.2rem);margin-bottom:12px;position:relative}
-.page-hero p{font-size:1.1rem;opacity:.7;position:relative;max-width:600px;margin:auto}
+
+@media(max-width:900px){
+  .masonry{columns:2}
+}
 @media(max-width:768px){
   .hamburger{display:flex}
   .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:20px 24px;box-shadow:0 8px 24px rgba(0,0,0,.1);gap:16px}
   .nav-links.open{display:flex}
-  .hero-stats{gap:24px;flex-wrap:wrap}
-  .why-grid,.contact-grid{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr}
-  .form-row{grid-template-columns:1fr}
-  .hero h1{font-size:2.4rem}
   .logo-img{min-width:180px;min-height:140px;width:180px}
-  .footer-logo-img{min-width:150px;min-height:120px;width:150px}
 }
-@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-.fade-up{animation:fadeUp .7s ease forwards}
-.delay-1{animation-delay:.1s}
-.delay-2{animation-delay:.2s}
-.delay-3{animation-delay:.3s}
+@media(max-width:500px){
+  .masonry{columns:1}
+}
 </style>
+
+<!-- Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ImageGallery",
+  "name": "Project Gallery – Dawsonville Grading & Hauling",
+  "description": "Photos of grading, excavation, site clearing, storm pond construction, and land disturbance projects completed across Northeast Georgia including Dawsonville, Gainesville, Cumming, Buford, and surrounding areas.",
+  "publisher": {
+    "@type": "LocalBusiness",
+    "name": "Dawsonville Grading & Hauling",
+    "telephone": "+1-678-796-5193",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Dawsonville",
+      "addressRegion": "GA",
+      "addressCountry": "US"
+    },
+    "areaServed": [
+      "Dawsonville, GA", "Gainesville, GA", "Cumming, GA", "Buford, GA",
+      "Oakwood, GA", "Flowery Branch, GA", "Dahlonega, GA", "Canton, GA",
+      "Hall County, GA", "Forsyth County, GA", "Dawson County, GA"
+    ],
+    "serviceType": ["Grading", "Excavation", "Site Clearing", "Land Disturbance", "Storm Pond Construction", "Hauling", "Demolition", "Erosion Control"]
+  },
+  "image": [
+    {
+      "@type": "ImageObject",
+      "contentUrl": "images/grading-detention-pond.jpg",
+      "name": "Detention Pond Grading",
+      "description": "Detention pond grading and land disturbance for stormwater management in Northeast Georgia"
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "images/retaining-wall.jpg",
+      "name": "Retaining Wall Construction",
+      "description": "Retaining wall construction for site grading and land stabilization in North Georgia"
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "images/storm-pond-grading.jpg",
+      "name": "Storm Pond Grading",
+      "description": "Commercial storm pond grading and site clearing for construction development in Northeast Georgia"
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "images/storm-pond-retaining-wall.jpg",
+      "name": "Storm Pond Retaining Wall",
+      "description": "Storm pond retaining wall and grading for site development in Dawson County, Northeast Georgia"
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "images/storm-pond.jpg",
+      "name": "Completed Storm Pond",
+      "description": "Completed stormwater pond with erosion control and final grading in Northeast Georgia"
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "images/bulldozer-at-work.jpeg",
+      "name": "Bulldozer Grading Work",
+      "description": "Bulldozer performing land grading and site preparation for construction in Dawson County, Georgia"
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "images/completed-storm-water-drain-pipe.jpeg",
+      "name": "Completed Stormwater Drain Pipe",
+      "description": "Completed stormwater drain pipe installation for civil construction in Hall County, Northeast Georgia"
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "images/drain-pipes-storm-water-system.jpeg",
+      "name": "Storm Water Drain Pipe System",
+      "description": "Stormwater drainage pipe system installation for land disturbance project in Forsyth County, Georgia"
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "images/dump-truck-gainsville-grading.jpeg",
+      "name": "Dump Truck Hauling",
+      "description": "Dump truck hauling fill dirt for grading project in Gainesville, Hall County, Georgia"
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "images/residential-grading-excavation.jpeg",
+      "name": "Residential Grading and Excavation",
+      "description": "Residential grading and excavation for new home construction in Flowery Branch, Northeast Georgia"
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "images/residential-grading-with-bobcat.jpeg",
+      "name": "Residential Grading with Bobcat",
+      "description": "Bobcat performing residential grading and lot preparation in Oakwood, Hall County, Georgia"
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "images/site-clearing-grading-for-data-center.jpeg",
+      "name": "Commercial Site Clearing for Data Center",
+      "description": "Large-scale site clearing and grading for commercial data center construction in Northeast Georgia"
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "images/storm-pond-drain-field.jpeg",
+      "name": "Storm Pond Drain Field",
+      "description": "Storm pond drain field construction for stormwater management in Cumming, Forsyth County, Georgia"
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "images/storm-pond-retaining-wall-prep.jpeg",
+      "name": "Storm Pond Retaining Wall Preparation",
+      "description": "Retaining wall preparation for storm pond construction in Buford, Gwinnett County, Northeast Georgia"
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "images/storm-water-drain-pipes.jpeg",
+      "name": "Stormwater Drain Pipes",
+      "description": "Stormwater drain pipe installation for civil site work and land disturbance in Dawsonville, Dawson County, Georgia"
+    }
+  ]
+}
+</script>
 </head>
 <body>
+
 <!-- TOPBAR -->
 <div class="topbar">
-  Proudly Serving Dawsonville, GA &amp; North Georgia &nbsp;|&nbsp; <a href="tel:+17065551234">(706) 555-1234</a> &nbsp;|&nbsp; Family Owned &amp; Operated
+  Proudly Serving Dawsonville, GA &amp; North Georgia &nbsp;|&nbsp; <a href="tel:+16787965193">(678) 796-5193</a> &nbsp;|&nbsp; Family Owned &amp; Operated
 </div>
 
 <!-- NAV -->
@@ -221,65 +242,114 @@ footer{background:var(--blue-dark);color:rgba(255,255,255,.7);padding:60px 24px 
 </div>
 
 <!-- GALLERY -->
-<section class="gallery" id="gallery">
-  <div class="section-inner">
-    <div class="section-label">Our Work</div>
-    <h2 class="section-title">Project Gallery</h2>
-    <p class="section-desc">Browse our completed projects across Dawson County and North Georgia.</p>
-    <div class="gallery-grid">
-      <div class="gallery-item" onclick="openLightbox('Detention Pond Grading','Precision grading for stormwater detention pond — land disturbance and erosion control project in Northeast Georgia.')">
-        <img class="gallery-img-real" src="images/grading-detention-pond.jpg" alt="Detention pond grading and land disturbance for stormwater management in Northeast Georgia">
-        <div class="gallery-overlay"><h4>Detention Pond Grading</h4><p>Northeast Georgia</p></div>
+<section class="gallery-section" id="gallery">
+  <div class="gallery-inner">
+    <div class="masonry">
+
+      <div class="masonry-item" onclick="openLB(0)">
+        <img src="images/grading-detention-pond.jpg" alt="Detention pond grading and land disturbance for stormwater management in Dawsonville and Northeast Georgia" loading="lazy">
       </div>
-      <div class="gallery-item" onclick="openLightbox('Retaining Wall Construction','Engineered retaining wall installation for site stabilization and grading support in the North Georgia mountains.')">
-        <img class="gallery-img-real" src="images/retaining-wall.jpg" alt="Retaining wall construction for site grading and land stabilization in North Georgia">
-        <div class="gallery-overlay"><h4>Retaining Wall</h4><p>North Georgia</p></div>
+
+      <div class="masonry-item" onclick="openLB(1)">
+        <img src="images/bulldozer-at-work.jpeg" alt="Bulldozer performing land grading and site preparation for construction in Dawson County, Georgia" loading="lazy">
       </div>
-      <div class="gallery-item" onclick="openLightbox('Storm Pond Grading','Commercial storm pond grading and site clearing for new construction development in Northeast Georgia.')">
-        <img class="gallery-img-real" src="images/storm-pond-grading.jpg" alt="Commercial storm pond grading and site clearing for construction development in Northeast Georgia">
-        <div class="gallery-overlay"><h4>Storm Pond Grading</h4><p>Northeast Georgia</p></div>
+
+      <div class="masonry-item" onclick="openLB(2)">
+        <img src="images/storm-pond-grading.jpg" alt="Commercial storm pond grading and site clearing for construction development in Gainesville, Northeast Georgia" loading="lazy">
       </div>
-      <div class="gallery-item" onclick="openLightbox('Storm Pond Retaining Wall','Retaining wall and grading work for stormwater pond construction — site development project in Dawson County, Georgia.')">
-        <img class="gallery-img-real" src="images/storm-pond-retaining-wall.jpg" alt="Storm pond retaining wall and grading for site development in Dawson County, Northeast Georgia">
-        <div class="gallery-overlay"><h4>Storm Pond Retaining Wall</h4><p>Dawson County, GA</p></div>
+
+      <div class="masonry-item" onclick="openLB(3)">
+        <img src="images/completed-storm-water-drain-pipe.jpeg" alt="Completed stormwater drain pipe installation for civil construction in Hall County, Northeast Georgia" loading="lazy">
       </div>
-      <div class="gallery-item" onclick="openLightbox('Storm Pond','Completed stormwater pond with final grading and erosion control — land disturbance project serving Northeast Georgia.')">
-        <img class="gallery-img-real" src="images/storm-pond.jpg" alt="Completed stormwater pond with erosion control and final grading in Northeast Georgia">
-        <div class="gallery-overlay"><h4>Storm Pond</h4><p>Northeast Georgia</p></div>
+
+      <div class="masonry-item" onclick="openLB(4)">
+        <img src="images/retaining-wall.jpg" alt="Retaining wall construction for site grading and land stabilization in Cumming, Forsyth County, North Georgia" loading="lazy">
       </div>
+
+      <div class="masonry-item" onclick="openLB(5)">
+        <img src="images/drain-pipes-storm-water-system.jpeg" alt="Stormwater drainage pipe system installation for land disturbance project in Forsyth County, Georgia" loading="lazy">
+      </div>
+
+      <div class="masonry-item" onclick="openLB(6)">
+        <img src="images/dump-truck-gainsville-grading.jpeg" alt="Dump truck hauling fill dirt for grading and excavation project in Gainesville, Hall County, Georgia" loading="lazy">
+      </div>
+
+      <div class="masonry-item" onclick="openLB(7)">
+        <img src="images/storm-pond-retaining-wall.jpg" alt="Storm pond retaining wall and grading for site development in Dawson County, Northeast Georgia" loading="lazy">
+      </div>
+
+      <div class="masonry-item" onclick="openLB(8)">
+        <img src="images/residential-grading-excavation.jpeg" alt="Residential grading and excavation for new home construction in Flowery Branch, Northeast Georgia" loading="lazy">
+      </div>
+
+      <div class="masonry-item" onclick="openLB(9)">
+        <img src="images/storm-pond.jpg" alt="Completed stormwater pond with erosion control and final grading in Oakwood, Hall County, Northeast Georgia" loading="lazy">
+      </div>
+
+      <div class="masonry-item" onclick="openLB(10)">
+        <img src="images/residential-grading-with-bobcat.jpeg" alt="Bobcat performing residential grading and lot preparation in Oakwood, Hall County, Georgia" loading="lazy">
+      </div>
+
+      <div class="masonry-item" onclick="openLB(11)">
+        <img src="images/site-clearing-grading-for-data-center.jpeg" alt="Large-scale site clearing and grading for commercial data center construction in Buford, Northeast Georgia" loading="lazy">
+      </div>
+
+      <div class="masonry-item" onclick="openLB(12)">
+        <img src="images/storm-pond-drain-field.jpeg" alt="Storm pond drain field construction for stormwater management in Cumming, Forsyth County, Georgia" loading="lazy">
+      </div>
+
+      <div class="masonry-item" onclick="openLB(13)">
+        <img src="images/storm-pond-retaining-wall-prep.jpeg" alt="Retaining wall preparation for storm pond construction in Buford, Gwinnett County, Northeast Georgia" loading="lazy">
+      </div>
+
+      <div class="masonry-item" onclick="openLB(14)">
+        <img src="images/storm-water-drain-pipes.jpeg" alt="Stormwater drain pipe installation for civil site work and land disturbance in Dawsonville, Dawson County, Georgia" loading="lazy">
+      </div>
+
     </div>
   </div>
 </section>
 
 <!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <button class="lightbox-close">&times;</button>
-  <div class="lightbox-content" onclick="event.stopPropagation()">
-    <div class="lightbox-img" id="lb-img">[ Project Photo ]</div>
-    <h3 id="lb-title"></h3>
-    <p id="lb-desc"></p>
-  </div>
+<div class="lightbox" id="lightbox" onclick="closeLB()">
+  <button class="lightbox-close" aria-label="Close">&times;</button>
+  <button class="lightbox-nav lightbox-prev" onclick="event.stopPropagation();navLB(-1)" aria-label="Previous">&#8249;</button>
+  <img class="lightbox-img" id="lb-img" src="" alt="" onclick="event.stopPropagation()">
+  <button class="lightbox-nav lightbox-next" onclick="event.stopPropagation();navLB(1)" aria-label="Next">&#8250;</button>
 </div>
 
 <script>
-function openLightbox(title,desc){
-  document.getElementById('lb-title').textContent=title;
-  document.getElementById('lb-desc').textContent=desc;
+var imgs=document.querySelectorAll('.masonry-item img');
+var srcs=[];var alts=[];
+imgs.forEach(function(img){srcs.push(img.src);alts.push(img.alt)});
+var cur=0;
+function openLB(i){
+  cur=i;
+  document.getElementById('lb-img').src=srcs[cur];
+  document.getElementById('lb-img').alt=alts[cur];
   document.getElementById('lightbox').classList.add('open');
   document.body.style.overflow='hidden';
 }
-function closeLightbox(){
+function closeLB(){
   document.getElementById('lightbox').classList.remove('open');
   document.body.style.overflow='';
 }
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbox()});
+function navLB(d){
+  cur=(cur+d+srcs.length)%srcs.length;
+  document.getElementById('lb-img').src=srcs[cur];
+  document.getElementById('lb-img').alt=alts[cur];
+}
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape')closeLB();
+  if(e.key==='ArrowLeft')navLB(-1);
+  if(e.key==='ArrowRight')navLB(1);
+});
 </script>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      
       <p>Family-owned grading, hauling, and site clearing in Dawsonville, Georgia. Serving North Georgia with honest work and fair pricing.</p>
     </div>
     <div class="footer-col">
@@ -303,9 +373,8 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbo
     </div>
   </div>
   <div class="footer-bottom">
-    <span>&copy; 2026 Dawsonville Grading &amp; Hauling. All rights reserved.</span>
     <span class="footer-credit">Website Built and Managed by <a href="https://reddirtwebsite.com" target="_blank" rel="noopener">Red Dirt Web Solutions</a></span>
-    <span>Proudly serving Dawsonville, GA &amp; North Georgia</span>
+    <span>&copy; 2026 Dawsonville Grading &amp; Hauling. All rights reserved.</span>
   </div>
 </footer>
 </body>
