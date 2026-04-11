@@ -137,7 +137,7 @@ footer{background:var(--blue-dark);color:rgba(255,255,255,.7);padding:60px 24px 
 .footer-col a{color:rgba(255,255,255,.6);text-decoration:none;font-size:.9rem;transition:color .2s}
 .footer-col a:hover{color:#fff}
 .footer-bottom{max-width:1200px;margin:auto;border-top:1px solid rgba(255,255,255,.1);padding-top:20px;display:flex;justify-content:space-between;align-items:center;font-size:.8rem;flex-wrap:wrap;gap:12px}
-.footer-credit{text-align:center;flex-basis:100%;margin-top:4px;font-size:.78rem}
+.footer-credit{font-size:.78rem}
 .footer-credit a{color:rgba(255,255,255,.6);text-decoration:none;transition:color .2s}
 .footer-credit a:hover{color:#fff}
 .about-hero{background:linear-gradient(135deg,var(--blue-dark),var(--blue));padding:120px 24px 80px;text-align:center;color:#fff;position:relative}
@@ -188,24 +188,102 @@ footer{background:var(--blue-dark);color:rgba(255,255,255,.7);padding:60px 24px 
 .delay-2{animation-delay:.2s}
 .delay-3{animation-delay:.3s}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": [
+    "LocalBusiness",
+    "GeneralContractor"
+  ],
+  "name": "Drake US LLC",
+  "legalName": "Drake US LLC",
+  "description": "We provide grading, site prep and trucking services for commercial and residential construction projects. We serve all of North Georgia.",
+  "url": "https://www.drakeusllc.net",
+  "telephone": "+1-678-796-5193",
+  "email": "drakeusllc@gmail.com",
+  "foundingDate": "2016",
+  "founder": {
+    "@type": "Person",
+    "name": "Blake Matheson"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "210 Matheson Dr",
+    "addressLocality": "Dawsonville",
+    "addressRegion": "GA",
+    "postalCode": "30534-7361",
+    "addressCountry": "US"
+  },
+  "areaServed": [
+    "Dawsonville, GA",
+    "Gainesville, GA",
+    "Cumming, GA",
+    "Buford, GA",
+    "Oakwood, GA",
+    "Flowery Branch, GA",
+    "Dahlonega, GA",
+    "Canton, GA",
+    "Ball Ground, GA",
+    "Jasper, GA",
+    "Cleveland, GA",
+    "Hall County, GA",
+    "Forsyth County, GA",
+    "Dawson County, GA"
+  ],
+  "hasCredential": [
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "license",
+      "name": "Erosion License"
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "license",
+      "name": "Utility Foreman License"
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "license",
+      "name": "Commercial and Residential Septic License"
+    }
+  ],
+  "serviceType": [
+    "Grading",
+    "Site Prep",
+    "Trucking",
+    "Excavation",
+    "Site Clearing",
+    "Land Disturbance",
+    "Storm Pond Construction",
+    "Hauling",
+    "Demolition",
+    "Erosion Control"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-678-796-5193",
+    "contactType": "customer service",
+    "email": "drakeusllc@gmail.com"
+  }
+}
+</script>
 </head>
 <body>
 <!-- TOPBAR -->
 <div class="topbar">
-  Proudly Serving Dawsonville, GA &amp; North Georgia &nbsp;|&nbsp; <a href="tel:+17065551234">(706) 555-1234</a> &nbsp;|&nbsp; Family Owned &amp; Operated
+  Proudly Serving Dawsonville, GA &amp; North Georgia &nbsp;|&nbsp; <a href="tel:+16787965193">(678) 796-5193</a> &nbsp;|&nbsp; Family Owned &amp; Operated
 </div>
 
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
     <a href="index.html" class="logo">
-      Drake Construction &amp; Trucking
+      <img src="images/DRAKE-WITH-TRUCK.png" alt="Drake US LLC – Grading, Site Prep &amp; Trucking in Dawsonville, Northeast Georgia" class="logo-img">
     </a>
     <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links">
-      <li><a href="services.html">Services</a></li>
       <li><a href="gallery.html">Gallery</a></li>
       <li><a href="testimonials.html">Testimonials</a></li>
       <li><a href="about.html">About Us</a></li>
@@ -233,7 +311,7 @@ footer{background:var(--blue-dark);color:rgba(255,255,255,.7);padding:60px 24px 
           <div><label>Last Name *</label><input type="text" placeholder="Smith" required></div>
         </div>
         <div class="form-row">
-          <div><label>Phone *</label><input type="tel" placeholder="(706) 555-1234" required></div>
+          <div><label>Phone *</label><input type="tel" placeholder="(678) 796-5193" required></div>
           <div><label>Email</label><input type="email" placeholder="john@email.com"></div>
         </div>
         <div>
@@ -257,7 +335,7 @@ footer{background:var(--blue-dark);color:rgba(255,255,255,.7);padding:60px 24px 
       <div class="contact-info">
         <div class="contact-item">
           <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div>
-          <div><h4>Phone</h4><a href="tel:+17065551234">(706) 555-1234</a></div>
+          <div><h4>Phone</h4><a href="tel:+16787965193">(678) 796-5193</a></div>
         </div>
         <div class="contact-item">
           <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
@@ -298,11 +376,11 @@ function submitForm(){
     <div class="footer-col">
       <h4>Services</h4>
       <ul>
-        <li><a href="services.html">Grading &amp; Leveling</a></li>
-        <li><a href="services.html">Site Clearing</a></li>
-        <li><a href="services.html">Dirt &amp; Debris Hauling</a></li>
-        <li><a href="services.html">Excavation</a></li>
-        <li><a href="services.html">Demolition</a></li>
+        <li><a href="index.html#services">Grading &amp; Leveling</a></li>
+        <li><a href="index.html#services">Site Clearing</a></li>
+        <li><a href="index.html#services">Dirt &amp; Debris Hauling</a></li>
+        <li><a href="index.html#services">Excavation</a></li>
+        <li><a href="index.html#services">Demolition</a></li>
       </ul>
     </div>
     <div class="footer-col">
