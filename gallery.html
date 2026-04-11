@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dawsonville Grading & Hauling | Site Clearing, Grading, Hauling</title>
+<title>Project Gallery | Dawsonville Grading & Hauling</title>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -214,41 +214,66 @@ footer{background:var(--blue-dark);color:rgba(255,255,255,.7);padding:60px 24px 
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-pattern"></div>
-  <div class="hero-content">
-    <div class="hero-badge"><span class="dot"></span> Now Booking Projects for 2026</div>
-    <h1 class="fade-up">We Move the Earth <span>You Build On</span></h1>
-    <p class="fade-up delay-1">Professional grading, site clearing, and hauling services in Dawsonville and across North Georgia. Family-owned quality you can trust.</p>
-    <div class="hero-btns fade-up delay-2">
-      <a href="contact.html" class="btn btn-red">Request Free Estimate</a>
-      <a href="tel:+17065551234" class="btn btn-outline">Call (706) 555-1234</a>
-    </div>
-    <div class="hero-stats fade-up delay-3">
-      <div class="stat">
-        <div class="stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.39L10 13.47l-4.83 2.73.92-5.39L2.18 7l5.43-.16z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.39L10 13.47l-4.83 2.73.92-5.39L2.18 7l5.43-.16z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.39L10 13.47l-4.83 2.73.92-5.39L2.18 7l5.43-.16z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.39L10 13.47l-4.83 2.73.92-5.39L2.18 7l5.43-.16z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.39L10 13.47l-4.83 2.73.92-5.39L2.18 7l5.43-.16z"/></svg></div>
-        <div class="stat-label">5-Star Google Reviews</div>
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <h1>Project Gallery</h1>
+  <p>Browse our completed projects across Dawson County and North Georgia.</p>
+</div>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="section-inner">
+    <div class="section-label">Our Work</div>
+    <h2 class="section-title">Project Gallery</h2>
+    <p class="section-desc">Browse our completed projects across Dawson County and North Georgia.</p>
+    <div class="gallery-grid">
+      <div class="gallery-item" onclick="openLightbox('Detention Pond Grading','Precision grading for stormwater detention pond — land disturbance and erosion control project in Northeast Georgia.')">
+        <img class="gallery-img-real" src="images/grading-detention-pond.jpg" alt="Detention pond grading and land disturbance for stormwater management in Northeast Georgia">
+        <div class="gallery-overlay"><h4>Detention Pond Grading</h4><p>Northeast Georgia</p></div>
       </div>
-      <div class="stat">
-        <div class="stat-num">100+</div>
-        <div class="stat-label">Projects Completed</div>
+      <div class="gallery-item" onclick="openLightbox('Retaining Wall Construction','Engineered retaining wall installation for site stabilization and grading support in the North Georgia mountains.')">
+        <img class="gallery-img-real" src="images/retaining-wall.jpg" alt="Retaining wall construction for site grading and land stabilization in North Georgia">
+        <div class="gallery-overlay"><h4>Retaining Wall</h4><p>North Georgia</p></div>
       </div>
-      <div class="stat">
-        <div class="stat-num">Family</div>
-        <div class="stat-label">Owned &amp; Operated</div>
+      <div class="gallery-item" onclick="openLightbox('Storm Pond Grading','Commercial storm pond grading and site clearing for new construction development in Northeast Georgia.')">
+        <img class="gallery-img-real" src="images/storm-pond-grading.jpg" alt="Commercial storm pond grading and site clearing for construction development in Northeast Georgia">
+        <div class="gallery-overlay"><h4>Storm Pond Grading</h4><p>Northeast Georgia</p></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('Storm Pond Retaining Wall','Retaining wall and grading work for stormwater pond construction — site development project in Dawson County, Georgia.')">
+        <img class="gallery-img-real" src="images/storm-pond-retaining-wall.jpg" alt="Storm pond retaining wall and grading for site development in Dawson County, Northeast Georgia">
+        <div class="gallery-overlay"><h4>Storm Pond Retaining Wall</h4><p>Dawson County, GA</p></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('Storm Pond','Completed stormwater pond with final grading and erosion control — land disturbance project serving Northeast Georgia.')">
+        <img class="gallery-img-real" src="images/storm-pond.jpg" alt="Completed stormwater pond with erosion control and final grading in Northeast Georgia">
+        <div class="gallery-overlay"><h4>Storm Pond</h4><p>Northeast Georgia</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-banner">
-  <h2>Ready to Break Ground?</h2>
-  <p>Get a free, no-obligation estimate for your next project. We respond within 24 hours.</p>
-  <a href="contact.html" class="btn btn-blue">Request Your Free Estimate</a>
-</section>
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close">&times;</button>
+  <div class="lightbox-content" onclick="event.stopPropagation()">
+    <div class="lightbox-img" id="lb-img">[ Project Photo ]</div>
+    <h3 id="lb-title"></h3>
+    <p id="lb-desc"></p>
+  </div>
+</div>
+
+<script>
+function openLightbox(title,desc){
+  document.getElementById('lb-title').textContent=title;
+  document.getElementById('lb-desc').textContent=desc;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbox()});
+</script>
 
 <!-- FOOTER -->
 <footer>
